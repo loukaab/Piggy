@@ -96,6 +96,7 @@ class PiggyParent(gopigo3.GoPiGo3):
 
         # call turn to degree on the delta
         turn_to_degree(goal)
+        
         pass
 
     def turn_to_degree(goal):
