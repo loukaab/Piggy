@@ -1,4 +1,5 @@
 from teacher import PiggyParent
+from Math import random
 import sys
 
 class Piggy(PiggyParent):
@@ -18,6 +19,7 @@ class Piggy(PiggyParent):
         self.LEFT_DEFAULT = 80
         self.RIGHT_DEFAULT = 80
         self.MIDPOINT = 1500  # what servo command (1000-2000) is straight forward for your bot?
+        self.load_defaults()
         
 
     def load_defaults(self):
@@ -53,7 +55,16 @@ class Piggy(PiggyParent):
     '''
 
     def dance(self):
-        print("I don't know how to dance. \nPlease give my programmer a zero.")
+        # Declare dance randomizer variable and function list
+        rd = random.randint()
+        fun = [waggle]
+        # Loop to make robot dance
+        for i in range(5)
+
+
+        
+        
+        # print("I don't know how to dance. \nPlease give my programmer a zero.")
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
@@ -70,6 +81,20 @@ class Piggy(PiggyParent):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
 
+    def waggle(self):
+        """This makes the robot do the 'waggle' dance """
+       # Robot 'waggles' 4 times
+        for i in range(4)
+            self.right(45)
+            self.servo(1750)
+            self.left(90)
+            self.servo(1250)
+    
+    def loopy(self)
+        """This function makes the robot do loop-dee-loops"""
+        
+
+            
 
 
 
