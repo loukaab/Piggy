@@ -1,6 +1,6 @@
 from teacher import PiggyParent
-import random
-import sys
+import random, sys, time
+
 
 class Piggy(PiggyParent):
 
@@ -88,13 +88,17 @@ class Piggy(PiggyParent):
        # Robot 'waggles' 4 times
         for i in range(4):
             self.turn_to_degree(45)
-            self.stop(.5)
+            time.sleep(.5)
+            self.stop()
             self.servo(1750)
-            self.stop(.5)
+            time.sleep(.5)
+            self.stop()
             self.turn_to_degree(215)
-            self.stop(.5)
+            time.sleep(.5)
+            self.stop(
             self.servo(1250)
-            self.stop(.5)
+            time.sleep(.5)
+            self.stop()
 
     def headshake(self):
         """Function that makes robot do the 'head shake' """
