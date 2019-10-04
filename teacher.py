@@ -99,7 +99,7 @@ class PiggyParent(gopigo3.GoPiGo3):
         
         pass
 
-    def turn_to_degree(goal):
+    def turn_to_degree(self, goal):
         # lower - ordered
         
         # EXTRA CREDIT make more efficient
@@ -108,7 +108,7 @@ class PiggyParent(gopigo3.GoPiGo3):
 
         '''
         # while loop - keep turning until gyro says I'm there
-        while abs(deg - self.get_heading) > 5:
+        while abs(goal - self.get_heading) > 5:
             self.right(primary=60, counter=-60)
         self.stop
         print("I think I turned correctly.")
