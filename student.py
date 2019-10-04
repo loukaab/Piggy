@@ -63,7 +63,7 @@ class Piggy(PiggyParent):
         # Loop to make robot dance
         for i in range(5)
         '''
-        
+
         self.waggle()
         
         # print("I don't know how to dance. \nPlease give my programmer a zero.")
@@ -87,11 +87,11 @@ class Piggy(PiggyParent):
         """This makes the robot do the 'waggle' dance """
        # Robot 'waggles' 4 times
         for i in range(4):
-            self.right(45)
+            self.right(turn_to_degree(45))
             self.stop(.5)
             self.servo(1750)
             self.stop(.5)
-            self.left(90)
+            self.left(turn_to_degree(215))
             self.stop(.5)
             self.servo(1250)
             self.stop(.5)
@@ -108,7 +108,7 @@ class Piggy(PiggyParent):
 
     def loopy(self)
         """This function makes the robot do loop-dee-loops"""
-        
+        pass
 
             
 
