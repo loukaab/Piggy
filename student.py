@@ -55,15 +55,16 @@ class Piggy(PiggyParent):
     '''
 
     def dance(self):
-       ''' # Declare dance randomizer variable and function list
+        ''' 
+        # Declare dance randomizer variable and function list
         rd = random.randint()
         fun = [waggle, headshake]
 
         # Loop to make robot dance
         for i in range(5)
         '''
-        self.waggle()
         
+        self.waggle()
         
         # print("I don't know how to dance. \nPlease give my programmer a zero.")
 
