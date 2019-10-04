@@ -87,11 +87,11 @@ class Piggy(PiggyParent):
         """This makes the robot do the 'waggle' dance """
        # Robot 'waggles' 4 times
         for i in range(4):
-            self.right(turn_to_degree(45))
+            self.turn_to_degree(45)
             self.stop(.5)
             self.servo(1750)
             self.stop(.5)
-            self.left(turn_to_degree(215))
+            self.turn_to_degree(215)
             self.stop(.5)
             self.servo(1250)
             self.stop(.5)
