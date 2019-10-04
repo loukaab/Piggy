@@ -1,5 +1,5 @@
 from teacher import PiggyParent
-from Math import random
+from math import Random
 import sys
 
 class Piggy(PiggyParent):
