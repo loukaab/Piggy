@@ -105,7 +105,7 @@ class Piggy(PiggyParent):
             self.servo(1250)
             self.stop(.5)
 
-    def loopy(self)
+    def loopy(self):
         """This function makes the robot do loop-dee-loops"""
         pass
 
