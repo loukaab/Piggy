@@ -55,16 +55,17 @@ class Piggy(PiggyParent):
     '''
 
     def dance(self):
-        ''' 
+        
         # Declare dance randomizer variable and function list
-        rd = random.randint()
-        fun = [waggle, headshake]
+        rd = random.randint(0, 5)
+        fun = [waggle, headshake, loopy]
 
         # Loop to make robot dance
         for i in range(5)
-        '''
+            fun[rd]
+            rd = random.randint(0, 3)
 
-        self.waggle()
+        
         
         # print("I don't know how to dance. \nPlease give my programmer a zero.")
 
@@ -114,11 +115,19 @@ class Piggy(PiggyParent):
 
     def loopy(self):
         """This function makes the robot do loop-dee-loops"""
-        pass
-
+        
+        for s in range(3):
+            self.turn_by_degree(360)
+        for s in range(3):
+            self.turn_by_degree(-360)
             
+        def moonwalk(self):
+            pass
 
 
+
+        def macarena(self):
+            pass
 
 ###########
 ## MAIN APP

@@ -86,7 +86,7 @@ class PiggyParent(gopigo3.GoPiGo3):
         current = self.get_heading
         
         # calculate delta
-        goal = current + deg
+        goal = current + degree
 
         # loop around 360 marker
         if goal > 360:
@@ -97,7 +97,7 @@ class PiggyParent(gopigo3.GoPiGo3):
         # call turn to degree on the delta
         turn_to_degree(goal)
         
-        pass
+        
 
     def turn_to_degree(self, goal):
         # lower - ordered
@@ -113,7 +113,7 @@ class PiggyParent(gopigo3.GoPiGo3):
         self.stop
         print("I think I turned correctly.")
 
-        pass
+        
 
 
 
