@@ -61,7 +61,7 @@ class Piggy(PiggyParent):
         fun = [waggle, headshake, loopy]
 
         # Loop to make robot dance
-        for i in range(5)
+        for i in range(5):
             fun[rd]
             rd = random.randint(0, 3)
 
