@@ -95,7 +95,7 @@ class Piggy(PiggyParent):
             self.stop()
             self.turn_to_degree(215)
             time.sleep(.5)
-            self.stop(
+            self.stop()
             self.servo(1250)
             time.sleep(.5)
             self.stop()
