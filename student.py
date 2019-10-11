@@ -57,6 +57,9 @@ class Piggy(PiggyParent):
 
     def dance(self):
         
+        waggle()
+
+        '''
         # Declare dance randomizer variable and function list
         rd = random.randint(0, 3)
 
@@ -66,7 +69,7 @@ class Piggy(PiggyParent):
         for m in range(5):
             fun[rd]
             rd = random.randint(0, 3)
-
+        '''
         
         
         # print("I don't know how to dance. \nPlease give my programmer a zero.")
