@@ -57,8 +57,8 @@ class Piggy(PiggyParent):
     def dance(self):
         
         # Declare dance randomizer variable and function list
-        rd = random.randint(0, 5)
-        fun = [waggle, headshake, loopy]
+        rd = random.randint(0, 3)
+        fun = [waggle(), headshake(), loopy()]
 
         # Loop to make robot dance
         for i in range(5):
