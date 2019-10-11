@@ -53,7 +53,23 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-
+    
+    def waggle(self):
+            """This makes the robot do the 'waggle' dance """
+        # Robot 'waggles' 4 times
+            for i in range(4):
+                self.turn_to_degree(45)
+                time.sleep(.5)
+                self.stop()
+                self.servo(1750)
+                time.sleep(.5)
+                self.stop()
+                self.turn_to_degree(215)
+                time.sleep(.5)
+                self.stop()
+                self.servo(1250)
+                time.sleep(.5)
+                self.stop()
 
     def dance(self):
         
@@ -88,25 +104,6 @@ class Piggy(PiggyParent):
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
-
-    def waggle(self):
-        """This makes the robot do the 'waggle' dance """
-       # Robot 'waggles' 4 times
-        for i in range(4):
-            self.turn_to_degree(45)
-            time.sleep(.5)
-            self.stop()
-            self.servo(1750)
-            time.sleep(.5)
-            self.stop()
-            self.turn_to_degree(215)
-            time.sleep(.5)
-            self.stop()
-            self.servo(1250)
-            time.sleep(.5)
-            self.stop()
-
-
 
 
     def headshake(self):
