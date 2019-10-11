@@ -73,7 +73,7 @@ class Piggy(PiggyParent):
 
     def dance(self):
         
-        waggle()
+        self.waggle()
 
         '''
         # Declare dance randomizer variable and function list
