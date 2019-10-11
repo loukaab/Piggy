@@ -54,11 +54,11 @@ class Piggy(PiggyParent):
     ****************
     '''
 
-    wag = waggle
-    head = headshake
-    loop = loopy
+    wag = waggle()
+    head = headshake()
+    loop = loopy()
 
-
+    
     def dance(self):
         
         # Declare dance randomizer variable and function list
