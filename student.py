@@ -54,50 +54,11 @@ class Piggy(PiggyParent):
     ****************
     '''
     
-    def waggle(self):
-        """This makes the robot do the 'waggle' dance """
-        # Robot 'waggles' 4 times
-        for i in range(2):
-            self.turn_to_deg(45)
-            time.sleep(.5)
-            self.stop()
-            self.servo(1750)
-            time.sleep(.5)
-            self.stop()
-            self.turn_by_deg(-90)
-            time.sleep(.5)
-            self.stop()
-            self.servo(1250)
-            time.sleep(.5)
-            self.stop()
-
-    def headshake(self):
-        """Function that makes robot do the 'head shake' """
-        # Robot shakes head 4 times
-        for i in range(4):
-            self.servo(1750)
-            self.stop(.5)
-            self.servo(1250)
-            self.stop(.5)
-
-    def loopy(self):
-        """This function makes the robot do loop-dee-loops"""
-        
-        for s in range(2):
-            self.turn_by_degree(360)
-        for s in range(3):
-            self.turn_by_degree(-360)
-            
-    def moonwalk(self):
-        pass
-
-
-
-    def macarena(self):
-        pass
 
     def dance(self):
         
+        waggle()
+        headshake()
         loopy()
 
         '''
@@ -115,6 +76,54 @@ class Piggy(PiggyParent):
         
         # print("I don't know how to dance. \nPlease give my programmer a zero.")
         '''
+
+
+        def waggle(self):
+            """This makes the robot do the 'waggle' dance """
+            # Robot 'waggles' 4 times
+            for i in range(2):
+                self.turn_to_deg(45)
+                time.sleep(.5)
+                self.stop()
+                self.servo(1750)
+                time.sleep(.5)
+                self.stop()
+                self.turn_by_deg(-90)
+                time.sleep(.5)
+                self.stop()
+                self.servo(1250)
+                time.sleep(.5)
+                self.stop()
+
+            def headshake(self):
+                """Function that makes robot do the 'head shake' """
+                # Robot shakes head 4 times
+                for i in range(4):
+                    self.servo(1750)
+                    self.stop(.5)
+                    self.servo(1250)
+                    self.stop(.5)
+
+        def loopy(self):
+            """This function makes the robot do loop-dee-loops"""
+            
+            for s in range(2):
+                self.turn_by_degree(360)
+            for s in range(3):
+                self.turn_by_degree(-360)
+                
+        def moonwalk(self):
+            pass
+
+
+
+        def macarena(self):
+            pass
+
+
+
+
+
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
         for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 3):
