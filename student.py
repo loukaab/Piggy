@@ -57,28 +57,7 @@ class Piggy(PiggyParent):
 
     def dance(self):
         
-        waggle()
-        headshake()
-        loopy()
-
-        '''
-        # Declare dance randomizer variable and function list
-        rd = random.randint(0, 3)
-
-        fun = [waggle, headshake, loopy]
-
-        # Loop to make robot dance
-        for m in range(3):
-            fun[rd]()
-            rd = random.randint(0, 3)
-        
-        
-        
-        # print("I don't know how to dance. \nPlease give my programmer a zero.")
-        '''
-
-
-        def waggle(self):
+       def waggle(self):
             """This makes the robot do the 'waggle' dance """
             # Robot 'waggles' 4 times
             for i in range(2):
@@ -95,14 +74,14 @@ class Piggy(PiggyParent):
                 time.sleep(.5)
                 self.stop()
 
-            def headshake(self):
-                """Function that makes robot do the 'head shake' """
-                # Robot shakes head 4 times
-                for i in range(4):
-                    self.servo(1750)
-                    self.stop(.5)
-                    self.servo(1250)
-                    self.stop(.5)
+        def headshake(self):
+            """Function that makes robot do the 'head shake' """
+            # Robot shakes head 4 times
+            for i in range(4):
+                self.servo(1750)
+                self.stop(.5)
+                self.servo(1250)
+                self.stop(.5)
 
         def loopy(self):
             """This function makes the robot do loop-dee-loops"""
@@ -116,12 +95,29 @@ class Piggy(PiggyParent):
             pass
 
 
-
         def macarena(self):
             pass
 
 
+        waggle()
+        headshake()
+        loopy()
+        
+        '''
+        # Declare dance randomizer variable and function list
+        rd = random.randint(0, 3)
 
+        fun = [waggle, headshake, loopy]
+
+        # Loop to make robot dance
+        for m in range(3):
+            fun[rd]()
+            rd = random.randint(0, 3)
+        
+        
+        
+        # print("I don't know how to dance. \nPlease give my programmer a zero.")
+        '''
 
 
     def scan(self):
