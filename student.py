@@ -55,7 +55,7 @@ class Piggy(PiggyParent):
     '''
     
     def waggle(self):
-            """This makes the robot do the 'waggle' dance """
+        """This makes the robot do the 'waggle' dance """
         # Robot 'waggles' 4 times
         for i in range(2):
             self.turn_to_deg(45)
