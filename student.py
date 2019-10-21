@@ -98,6 +98,9 @@ class Piggy(PiggyParent):
 
     def dance(self):
         
+        loopy()
+
+        '''
         # Declare dance randomizer variable and function list
         rd = random.randint(0, 3)
 
@@ -111,7 +114,7 @@ class Piggy(PiggyParent):
         
         
         # print("I don't know how to dance. \nPlease give my programmer a zero.")
-
+        '''
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
         for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 3):
