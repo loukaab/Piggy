@@ -84,7 +84,8 @@ class Piggy(PiggyParent):
         """This function makes the robot do loop-dee-loops"""
         
         for s in range(2):
-            turn_by_degree(360)
+            self.turn_by_deg(360)
+            self.turn_by_deg(-360)
         
             
             
@@ -115,15 +116,14 @@ class Piggy(PiggyParent):
         if not self.safe_to_dance():
             print("Are you trying to kill me?")
         else:
-         print("Ya know what kid, I like you.")    
+            print("Ya know what kid, I like you.")    
 
         # Calling other dance moves
         # Declare dance randomizer variable and function list
         rd = random.randint(0, 3)
-
         fun = [self.waggle, self.headshake, self.loopy]
 
-        # Loop to make robot dance
+        # Loop to make robot do random dance
         for m in range(3):
             fun[rd]()
             rd = random.randint(0, 3)
