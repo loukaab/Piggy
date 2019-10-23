@@ -84,8 +84,8 @@ class Piggy(PiggyParent):
         """This function makes the robot do loop-dee-loops"""
         
         for s in range(2):
-            self.turn_by_deg(360)
-            self.turn_by_deg(-360)
+            self.turn_by_deg(359)
+            self.turn_by_deg(-359)
         
             
             
