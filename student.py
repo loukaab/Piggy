@@ -90,7 +90,14 @@ class Piggy(PiggyParent):
             
             
     def moonwalk(self):
-        pass
+        self.turn_by_deg(-45)
+        self.back()
+        time.sleep(.75)
+        self.stop()
+        self.turn_by_deg(90)
+        self.back()
+        time.sleep(.75)
+        self.stop()
 
     def macarena(self):
         pass
@@ -120,13 +127,13 @@ class Piggy(PiggyParent):
 
         # Calling other dance moves
         # Declare dance randomizer variable and function list
-        rd = random.randint(0, 2)
-        fun = [self.waggle, self.headshake, self.loopy]
+        rd = random.randint(0, 3)
+        fun = [self.waggle, self.headshake, self.loopy, self.moonwalk]
 
         # Loop to make robot do random dance
         for m in range(3):
-            fun[rd]()
-            rd = random.randint(0, 2)
+            fun[3]()
+            rd = random.randint(0, 3)
         
         
         
