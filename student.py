@@ -125,7 +125,7 @@ class Piggy(PiggyParent):
 
         # Loop to make robot do random dance
         for m in range(3):
-            fun[rd]()
+            fun[2]()
             rd = random.randint(0, 3)
         
         
