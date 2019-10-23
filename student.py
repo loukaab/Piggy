@@ -76,9 +76,9 @@ class Piggy(PiggyParent):
         # Robot shakes head 4 times
         for i in range(4):
             self.servo(1750)
-            self.stop(.5)
+            self.stop()
             self.servo(1250)
-            self.stop(.5)
+            self.stop()
 
     def loopy(self):
         """This function makes the robot do loop-dee-loops"""
@@ -94,9 +94,30 @@ class Piggy(PiggyParent):
     def macarena(self):
         pass
 
+    def safe_to_dance(self):
+        """360 distance check to see if surroundings are safe for movement"""
+        
+        for x in range(4):
+            for ang in range(1000, 2001, 100):
+                self.servo(ang)
+                time.sleep(.1)
+                if self.read_distance() < 250:
+                    return False
+            self.turn_by_deg(90)
+        return True
+                
+
+
     def dance(self):
+        """A higher numbered algorithm to make robot dance"""
         
-        
+        # Check to see if surroundings are safe
+        if not self.safe_to_dance():
+            print("Are you trying to kill me?")
+        else:
+         print("Ya know what kid, I like you.")    
+
+        # Calling other dance moves
         # Declare dance randomizer variable and function list
         rd = random.randint(0, 3)
 
