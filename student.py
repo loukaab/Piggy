@@ -120,13 +120,13 @@ class Piggy(PiggyParent):
 
         # Calling other dance moves
         # Declare dance randomizer variable and function list
-        rd = random.randint(0, 3)
+        rd = random.randint(0, 2)
         fun = [self.waggle, self.headshake, self.loopy]
 
         # Loop to make robot do random dance
         for m in range(3):
-            fun[2]()
-            rd = random.randint(0, 3)
+            fun[rd]()
+            rd = random.randint(0, 2)
         
         
         
