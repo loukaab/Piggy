@@ -85,8 +85,8 @@ class Piggy(PiggyParent):
         
         for s in range(2):
             self.turn_by_degree(360)
-        for s in range(3):
-            self.turn_by_degree(-360)
+        
+            
             
     def moonwalk(self):
         pass
