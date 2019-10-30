@@ -167,15 +167,43 @@ class Piggy(PiggyParent):
             self.scan_data[angle] = self.read_distance()
 
     def obstacle_count(self):
-        print("I can't count how many obstacles are around me. Please give my programmer a zero.")
+        """Does a 360 scan and determines obstacle count"""
+
+        # Setting up magic variables
+        found_something = False         # Trigger
+        count = 0
+        trigger_distance = 250
+
+        # Writing down starting position for storage
+        starting_position = self.get_heading()
+
+        # Starting rotation for scanning
+        self.right(primary=60, counter=60)
+
+        # While loop for object scanning
+        while self.get_heading() != starting_position:
+            if self.read_distance() < trigger_distance and not found_something:
+                found_something = True
+                count += 1
+                print("\n Found something!")
+            elif self.read_distance() > trigger_distance and found_something:
+                found_something = False
+                print("\n Seems I have a clear view, resetting trigger")
+
+        self.stop
+        print("I found %d objects" % count)
+        return count
+
 
     def nav(self):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
-
-
+        while self.read_distance > 250:
+            self.fwd()
+            time.sleep(.01)
+        self.stop()
 
 ###########
 ## MAIN APP
