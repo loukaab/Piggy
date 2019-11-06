@@ -200,42 +200,40 @@ class Piggy(PiggyParent):
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
-        while self.read_distance() > 250:
-            self.fwd()
-            time.sleep(.01)
-        self.stop()
-        self.scan()
+        while True:
+            
+            while self.read_distance() > 250:
+                self.fwd()
+                time.sleep(.01)
+            self.stop()
+            self.scan()
 
-        # traversal
-        # magic numbers for counters
-        left_total = 0
-        left_count = 0
-        right_total = 0
-        right_count = 0
+            # traversal
+            # magic numbers for counters
+            left_total = 0
+            left_count = 0
+            right_total = 0
+            right_count = 0
 
-        # transversal itself, collects distance and ange data
-        for ang, dist in self.scan_data.items():
-            if ang < self.MIDPOINT:
-                right_total += dist
-                right_count += 1
+            # transversal itself, collects distance and ange data
+            for ang, dist in self.scan_data.items():
+                if ang < self.MIDPOINT:
+                    right_total += dist
+                    right_count += 1
+                else:
+                    left_total += dist
+                    left_count += 1
+
+            # average distance data to find open side
+            left_avg = left_total / left_count
+            right_avg = right_total / right_count
+
+            # Turns to side that is open
+            if left_avg > right_avg:
+                self.turn_by_deg(-45)
             else:
-                left_total += dist
-                left_count += 1
+                self.turn_by_deg(45)
 
-        # average distance data to find open side
-        left_avg = left_total / left_count
-        right_avg = right_total / right_count
-
-        # Turns to side that is open
-        if left_avg > right_avg:
-            self.turn_by_deg(-45)
-        else:
-            self.turn_by_deg(45)
-
-        # move into open spot
-        self.fwd()
-        time.sleep(.75)
-        self.stop()
 
 ###########
 ## MAIN APP
