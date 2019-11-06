@@ -207,10 +207,13 @@ class Piggy(PiggyParent):
         self.scan()
 
         # traversal
+        # magic numbers for counters
         left_total = 0
         left_count = 0
         right_total = 0
         right_count = 0
+
+        # transversal itself, collects distance and ange data
         for ang, dist in self.scan_data.items():
             if ang < self.MIDPOINT:
                 right_total += dist
@@ -219,14 +222,20 @@ class Piggy(PiggyParent):
                 left_total += dist
                 left_count += 1
 
+        # average distance data to find open side
         left_avg = left_total / left_count
         right_avg = right_total / right_count
 
+        # Turns to side that is open
         if left_avg > right_avg:
             self.turn_by_deg(-45)
         else:
             self.turn_by_deg(45)
 
+        # move into open spot
+        self.fwd()
+        time.sleep(.75)
+        self.stop()
 
 ###########
 ## MAIN APP
