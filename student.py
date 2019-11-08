@@ -200,50 +200,53 @@ class Piggy(PiggyParent):
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
+        cc = 0
         while True:
-            
+            self.servo(self.MIDPOINT)
             while self.read_distance() > 250:
                 self.fwd()
                 time.sleep(.01)
             self.stop()
             self.scan()
+            spos = self.get_heading
 
             # traversal
             # magic numbers for counters
-            left_total = 0
-            left_count = 0
-            right_total = 0
-            right_count = 0
-            center_total = 0
-            center_count = 0
+            
+            while self.read_distance > 250:
+                cc += 1
+                left_total = 0
+                left_count = 0
+                right_total = 0
+                right_count = 0
 
-            # transversal itself, collects distance and angel data
-            for ang, dist in self.scan_data.items():
-                if ang <= 1300 and ang >= 1700:
-                    center_total += dist
-                    center_count += 1   
-                if ang < self.MIDPOINT:
-                    right_total += dist
-                    right_count += 1
+                # transversal itself, collects distance and angel data
+                for ang, dist in self.scan_data.items():
+                    if ang < self.MIDPOINT:
+                        right_total += dist
+                        right_count += 1
+                    else:
+                        left_total += dist
+                        left_count += 1
+
+
+
+                # average distance data to find open side
+                left_avg = left_total / left_count
+                right_avg = right_total / right_count
+
+                if cc > 5:
+                    self.turn_by_deg(180)
+
+                # Turns to side that is open
+                elif left_avg > right_avg:
+                    self.turn_by_deg(-45)
                 else:
-                    left_total += dist
-                    left_count += 1
+                    self.turn_by_deg(45)
 
+            
+            
 
-
-            # average distance data to find open side
-            left_avg = left_total / left_count
-            right_avg = right_total / right_count
-            center_avg = center_total / center_count
-            side_avg = (left_avg + right_avg) / 2
-
-            # Turns to side that is open
-            if center_avg > side_avg:
-                self.turn_by_deg(180)
-            elif left_avg > right_avg:
-                self.turn_by_deg(-45)
-            else:
-                self.turn_by_deg(45)
 
             
             
