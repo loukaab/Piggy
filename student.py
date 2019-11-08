@@ -238,7 +238,7 @@ class Piggy(PiggyParent):
             side_avg = (left_avg + right_avg) / 2
 
             # Turns to side that is open
-            if center_avg > side_avg
+            if center_avg > side_avg:
                 self.turn_by_deg(180)
             elif left_avg > right_avg:
                 self.turn_by_deg(-45)
