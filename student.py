@@ -207,13 +207,14 @@ class Piggy(PiggyParent):
                 self.fwd()
                 time.sleep(.01)
             self.stop()
-            self.scan()
+            
 
 
             # traversal
             # magic numbers for counters
             
             while self.read_distance() > 250:
+                self.scan()
                 cc += 1
                 left_total = 0
                 left_count = 0
