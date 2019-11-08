@@ -209,6 +209,7 @@ class Piggy(PiggyParent):
             self.stop()
             self.scan()
 
+
             # traversal
             # magic numbers for counters
             
