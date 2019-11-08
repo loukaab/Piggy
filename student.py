@@ -219,7 +219,7 @@ class Piggy(PiggyParent):
 
             # transversal itself, collects distance and angel data
             for ang, dist in self.scan_data.items():
-                if ang <= 1300 and ang >= 1700
+                if ang <= 1300 and ang >= 1700:
                     center_total += dist
                     center_count += 1   
                 if ang < self.MIDPOINT:
