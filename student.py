@@ -258,8 +258,10 @@ class Piggy(PiggyParent):
                 # Turns to side that is open
                 elif left_avg > right_avg:
                     self.turn_by_deg(-45)
+                    check = True
                 else:
                     self.turn_by_deg(45)
+                    check = True
 
             
             
