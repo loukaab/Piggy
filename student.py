@@ -207,13 +207,13 @@ class Piggy(PiggyParent):
                 self.fwd()
                 time.sleep(.01)
             self.stop()
-            print "it connects"
+            print("it connects")
 
 
             # traversal
             # magic numbers for counters
             
-            while self.read_distance() > 250:
+            while cc != 0:
                 self.scan()
                 cc += 1
                 left_total = 0
@@ -238,6 +238,7 @@ class Piggy(PiggyParent):
 
                 if cc >= 4:
                     self.turn_by_deg(180)
+                    cc = 0
 
                 # Turns to side that is open
                 elif left_avg > right_avg:
