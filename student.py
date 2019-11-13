@@ -207,7 +207,7 @@ class Piggy(PiggyParent):
                 self.fwd()
                 time.sleep(.01)
             self.stop()
-            
+            print "it connects"
 
 
             # traversal
