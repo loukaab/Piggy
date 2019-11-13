@@ -19,7 +19,7 @@ class Piggy(PiggyParent):
         self.LEFT_DEFAULT = 80
         self.RIGHT_DEFAULT = 78
         self.SAFE_DIST = 250
-        self.MIDPOINT = 1460  # what servo command (1000-2000) is straight forward for your bot?
+        self.MIDPOINT = 1400  # what servo command (1000-2000) is straight forward for your bot?
         self.load_defaults()
         
 
@@ -260,9 +260,11 @@ class Piggy(PiggyParent):
                 elif left_avg > right_avg:
                     self.turn_by_deg(-45)
                     check = True
+                    cc = 0
                 else:
                     self.turn_by_deg(45)
                     check = True
+                    cc = 0
 
             
             
