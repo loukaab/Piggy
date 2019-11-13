@@ -18,7 +18,7 @@ class Piggy(PiggyParent):
         '''
         self.LEFT_DEFAULT = 80
         self.RIGHT_DEFAULT = 80
-        self.SAFE_CHECK = 250
+        self.SAFE_DIST = 250
         self.MIDPOINT = 1500  # what servo command (1000-2000) is straight forward for your bot?
         self.load_defaults()
         
@@ -201,6 +201,8 @@ class Piggy(PiggyParent):
             self.servo(ang)
             if self.read_distance() < self.SAFE_DIST:
                 return False
+            else:
+                return True
 
 
 
