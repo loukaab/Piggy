@@ -201,19 +201,21 @@ class Piggy(PiggyParent):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
         cc = 0
+        check = True
         while True:
             self.servo(self.MIDPOINT)
             while self.read_distance() > 250:
                 self.fwd()
                 time.sleep(.01)
             self.stop()
+            check = False
             print("it connects")
 
 
             # traversal
             # magic numbers for counters
             
-            while cc != 0:
+            while not check:
                 self.scan()
                 cc += 1
                 left_total = 0
@@ -239,6 +241,7 @@ class Piggy(PiggyParent):
                 if cc >= 4:
                     self.turn_by_deg(180)
                     cc = 0
+                    check = True
 
                 # Turns to side that is open
                 elif left_avg > right_avg:
