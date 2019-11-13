@@ -17,7 +17,7 @@ class Piggy(PiggyParent):
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
         self.LEFT_DEFAULT = 80
-        self.RIGHT_DEFAULT = 77
+        self.RIGHT_DEFAULT = 78
         self.SAFE_DIST = 250
         self.MIDPOINT = 1500  # what servo command (1000-2000) is straight forward for your bot?
         self.load_defaults()
@@ -215,6 +215,7 @@ class Piggy(PiggyParent):
         cc = 0
         check = True
         while True:
+            
             self.servo(self.MIDPOINT)
             while self.quick_check():
                 self.fwd()
