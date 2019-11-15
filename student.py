@@ -217,7 +217,7 @@ class Piggy(PiggyParent):
         while True:
             
             self.servo(self.MIDPOINT)
-            while self.read_distance() < self.SAFE_DIST:
+            while self.read_distance() > self.SAFE_DIST:
                 self.fwd()
                 self.quick_check()
                 time.sleep(.01)
