@@ -154,16 +154,16 @@ class Piggy(PiggyParent):
         
         
         # print("I don't know how to dance. \nPlease give my programmer a zero.")
-        
-
-        
-
-
-
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
         for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 100):
+            self.servo(angle)
+            self.scan_data[angle] = self.read_distance()
+
+       def fastscan(self):
+        """Sweep the servo and populate the scan_data dictionary but FAST"""
+        for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 200):
             self.servo(angle)
             self.scan_data[angle] = self.read_distance()
 
@@ -219,6 +219,7 @@ class Piggy(PiggyParent):
             self.servo(self.MIDPOINT)
             while self.quick_check():
                 self.fwd()
+                self.fastscan
                 time.sleep(.01)
             self.stop()
             check = False
