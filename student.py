@@ -263,7 +263,7 @@ class Piggy(PiggyParent):
                     self.turn_by_deg(45)
 
                 if self.read_distance > self.SAFE_DIST:
-                    break
+                    check = True
 
                     
                     
