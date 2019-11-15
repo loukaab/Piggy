@@ -161,11 +161,11 @@ class Piggy(PiggyParent):
             self.servo(angle)
             self.scan_data[angle] = self.read_distance()
 
-       def fastscan(self):
-        """Sweep the servo and populate the scan_data dictionary but FAST"""
-        for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 200):
-            self.servo(angle)
-            self.scan_data[angle] = self.read_distance()
+    def fastscan(self):
+    """Sweep the servo and populate the scan_data dictionary but FAST"""
+    for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 200):
+        self.servo(angle)
+        self.scan_data[angle] = self.read_distance()
 
     def obstacle_count(self):
         """Does a 360 scan and determines obstacle count"""
