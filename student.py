@@ -219,12 +219,11 @@ class Piggy(PiggyParent):
             self.servo(self.MIDPOINT)
             while self.read_distance() > self.SAFE_DIST:
                 self.fwd()
-                self.quick_check()
                 time.sleep(.01)
             self.stop()
             check = False
           
-
+            self.quick_check()
 
             # traversal
             # magic numbers for counters
