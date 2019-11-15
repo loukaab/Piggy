@@ -219,11 +219,11 @@ class Piggy(PiggyParent):
             self.servo(self.MIDPOINT)
             while self.quick_check():
                 self.fwd()
-                self.quick_check
+                self.quick_check()
                 time.sleep(.01)
             self.stop()
             check = False
-            print("it connects")
+          
 
 
             # traversal
