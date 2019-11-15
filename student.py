@@ -212,10 +212,9 @@ class Piggy(PiggyParent):
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
-        cc = 0
         check = True
         while True:
-            
+            cc = 0
             self.servo(self.MIDPOINT)
             while self.read_distance() > self.SAFE_DIST:
                 self.fwd()
@@ -259,12 +258,14 @@ class Piggy(PiggyParent):
                 # Turns to side that is open
                 elif left_avg > right_avg:
                     self.turn_by_deg(-45)
-                    check = True
-                    cc = 0
+                    
+                    
                 else:
                     self.turn_by_deg(45)
-                    check = True
-                    cc = 0
+
+
+                    
+                    
 
             
             
