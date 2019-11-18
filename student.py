@@ -229,7 +229,7 @@ class Piggy(PiggyParent):
         ra = rt / rc
 
         # Turns to side that is open
-        elif la > ra:
+        if la > ra:
             self.turn_by_deg(-45)
             
         else:
