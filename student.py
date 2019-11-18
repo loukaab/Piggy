@@ -203,9 +203,41 @@ class Piggy(PiggyParent):
                 return False
         return True
 
-    def turn(cornercount):
+    def largescan(self):
+    """Does a wide-ranged scan, and turns robot to hopefully open area"""
+    for angle in range(self.MIDPOINT-500, self.MIDPOINT+500, 100):
+        self.servo(angle)
+        self.wide_scan_data[angle] = self.read_distance()
+
+    def turn(self):
         """Part of program that controls robot's turning function, takes in corner count var"""
-        pass
+        rt = 0
+        rc = 0
+        lt = 0
+        lc = 0
+        
+        for ang, dist in self.wide_scan_data.items():
+            if ang < self.MIDPOINT:
+                rt += dist
+                rc += 1
+            else:
+                lt += dist
+                lc += 1
+
+        # average distance data to find open side
+        la = lt / lc
+        ra = rt / rc
+
+        # Turns to side that is open
+        elif la > ra:
+            self.turn_by_deg(-45)
+            
+        else:
+            self.turn_by_deg(45)
+
+
+
+    
 
 
 
@@ -215,6 +247,9 @@ class Piggy(PiggyParent):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
         check = True
+        largescan():
+        self.turn()
+
         while True:
             cc = 0
             self.servo(self.MIDPOINT)
