@@ -247,7 +247,7 @@ class Piggy(PiggyParent):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
         check = True
-        largescan():
+        largescan()
         self.turn()
 
         while True:
