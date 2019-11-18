@@ -204,10 +204,10 @@ class Piggy(PiggyParent):
         return True
 
     def largescan(self):
-    """Does a wide-ranged scan, and turns robot to hopefully open area"""
-    for angle in range(self.MIDPOINT-500, self.MIDPOINT+500, 100):
-        self.servo(angle)
-        self.wide_scan_data[angle] = self.read_distance()
+        """Does a wide-ranged scan, and turns robot to hopefully open area"""
+        for angle in range(self.MIDPOINT-500, self.MIDPOINT+500, 100):
+            self.servo(angle)
+            self.wide_scan_data[angle] = self.read_distance()
 
     def turn(self):
         """Part of program that controls robot's turning function, takes in corner count var"""
