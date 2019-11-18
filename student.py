@@ -203,6 +203,9 @@ class Piggy(PiggyParent):
                 return False
         return True
 
+    def turn(cornercount):
+        """Part of program that controls robot's turning function, takes in corner count var"""
+        pass
 
 
 
