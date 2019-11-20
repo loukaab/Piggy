@@ -19,7 +19,7 @@ class PiggyParent(gopigo3.GoPiGo3):
     def __init__(self, addr=8, detect=True):
         gopigo3.GoPiGo3.__init__(self)
         self.scan_data = {}
-        self.large_scan_data = {}
+        self.wide_scan_data = {}
         # mutex sensors on IC2
         self.distance_sensor = EasyDistanceSensor(port="RPI_1", use_mutex=True)
         self.imu = inertial_measurement_unit.InertialMeasurementUnit(bus="RPI_1")
