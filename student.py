@@ -237,17 +237,13 @@ class Piggy(PiggyParent):
 
 
 
-    
-
-
-
     def nav(self):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
         check = True
-        largescan()
+        self.largescan()
         self.turn()
 
         while True:
