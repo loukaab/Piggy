@@ -161,11 +161,11 @@ class Piggy(PiggyParent):
             self.servo(angle)
             self.scan_data[angle] = self.read_distance()
 
-    def fastscan(self):
-        """Sweep the servo and populate the scan_data dictionary but FAST"""
-        for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 200):
+    def largescan(self):
+        """Does a wide-ranged scan, and turns robot to hopefully open area"""
+        for angle in range(self.MIDPOINT-500, self.MIDPOINT+500, 100):
             self.servo(angle)
-            self.scan_data[angle] = self.read_distance()
+            self.wide_scan_data[angle] = self.read_distance()
 
     def obstacle_count(self):
         """Does a 360 scan and determines obstacle count"""
@@ -202,12 +202,6 @@ class Piggy(PiggyParent):
             if self.read_distance() < self.SAFE_DIST:
                 return False
         return True
-
-    def largescan(self):
-        """Does a wide-ranged scan, and turns robot to hopefully open area"""
-        for angle in range(self.MIDPOINT-500, self.MIDPOINT+500, 100):
-            self.servo(angle)
-            self.wide_scan_data[angle] = self.read_distance()
 
     def turn(self):
         """Part of program that controls robot's turning function, takes in corner count var"""
