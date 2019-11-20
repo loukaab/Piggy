@@ -236,6 +236,7 @@ class Piggy(PiggyParent):
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
+        starthead = self.get_heading()
         check = True
         self.largescan()
         self.turn()
@@ -284,20 +285,21 @@ class Piggy(PiggyParent):
 
                 # Turns to side that is open
                 elif left_avg > right_avg:
-                    self.turn_by_deg(-45)
-                    
+                    if self.get_heading() >= starthead:
+                        self.turn_by_deg(-45)
+                    else:
+                        self.turn_by_deg(22)
                 else:
-                    self.turn_by_deg(45)
+                    if self.get_heading() <= starthead:
+                        self.turn_by_deg(45)
+                    else:
+                        self.turn_by_deg(-22) 
 
+                # checks if turned away from wall, if not, add 1 to turn checker and redoes turning protocal
                 if self.read_distance() > self.SAFE_DIST:
                     check = True
-
-                    
-                    
-
-            
-            
-
+                else:
+                    cc += 1
 
             
             
