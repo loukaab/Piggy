@@ -292,10 +292,27 @@ class Piggy(PiggyParent):
 
                 # if already turned 4 times then do 180 to get out of corner
                 if cc >= 4:
-                    self.turn_by_deg(180)
-                    cc = 0
+
+                    self.turn_by_deg(90)
+                    currenthead += 90
+                    if self.read_distance() >= 250:
+                        cc = 0
+                        check = True
+
+                    self.turn_by_deg(-180)
                     currenthead -= 180
+                    if self.read_distance() >= 250:
+                        cc = 0
+                        check = True
+
+                    self.turn_by_deg(-45)
+                    cc = 0
                     check = True
+                    currenthead = 0
+                        
+                    
+                    
+                    
 
                 # Turns to side that is open with bias towards exit of maze
                 elif left_avg > right_avg:
