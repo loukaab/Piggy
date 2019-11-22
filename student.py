@@ -242,7 +242,7 @@ class Piggy(PiggyParent):
         # these to values allow easier tracking direction to allow a turn bias
         starthead = 1500
         currenthead = 1500
-        realstarthead = self.get_heading
+        exitheading = self.get_heading()
 
         check = True
         
@@ -258,9 +258,9 @@ class Piggy(PiggyParent):
             self.stop()
             check = False
           
-            # if robot is facing wildly away from start, turn towards exit
+            # if robot is facing wildly away from exit, turn towards exit
             if abs(starthead - currenthead) > 90:
-                self.turn_to_deg(realstarthead)
+                self.turn_to_deg(exitheading)
 
             # traversal
             # magic numbers for counters
