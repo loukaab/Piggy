@@ -17,7 +17,7 @@ class Piggy(PiggyParent):
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
         self.LEFT_DEFAULT = 100
-        self.RIGHT_DEFAULT = 98
+        self.RIGHT_DEFAULT = 100
         self.SAFE_DIST = 250
         self.MIDPOINT = 1550  # what servo command (1000-2000) is straight forward for your bot?
         self.load_defaults()
@@ -203,7 +203,7 @@ class Piggy(PiggyParent):
                 return False
         return True
 
-    def turn(self):
+    def turn(self, head):
         """Part of program that controls robot's turning function, takes in corner count var"""
         rt = 0
         rc = 0
@@ -225,9 +225,11 @@ class Piggy(PiggyParent):
         # Turns to side that is open
         if la > ra:
             self.turn_by_deg(-22)
-            
+            head -= 22
+
         else:
             self.turn_by_deg(22)
+            head += 22
 
 
 
@@ -236,10 +238,16 @@ class Piggy(PiggyParent):
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
-        starthead = self.get_heading()
+        
+        # these to values allow easier tracking direction to allow a turn bias
+        starthead = 1500
+        currenthead = 1500
+        realstarthead = self.get_heading
+
         check = True
+        
         self.largescan()
-        self.turn()
+        self.turn(starthead)
 
         while True:
             cc = 0
@@ -250,7 +258,9 @@ class Piggy(PiggyParent):
             self.stop()
             check = False
           
-            self.quick_check()
+            # if robot is facing wildly away from start, turn towards exit
+            if abs(starthead - currenthead) > 90:
+                self.turn_to_deg(realstarthead)
 
             # traversal
             # magic numbers for counters
@@ -287,33 +297,41 @@ class Piggy(PiggyParent):
                 # Turns to side that is open with bias towards exit of maze
                 elif left_avg > right_avg:
                     # determine if it'd be better to bias towards left favorable direction
-                    if self.get_heading() >= starthead:
+                    if currenthead >= starthead:
                         self.turn_by_deg(-45)
+                        currenthead -= 45
                     else:
                         right_avg += 10
                     # turn towards less favorable direction if facing to far from entrance
                     if right_avg > left_avg:
                         self.turn_by_deg(22)
+                        currenthead += 22
                     else:
                         self.turn_by_deg(-45)
+                        currenthead -= 45
 
                 else:
                     # determine if it'd be better to bias towards left favorable direction
-                    if self.get_heading() < starthead :
+                    if currenthead < starthead :
                         self.turn_by_deg(45)
+                        currenthead += 45
                     else:
                         left_avg += 10
                     # turn towards less favorable direction if facing to far from entrance
                     if right_avg > left_avg:
-                        self.turn_by_deg(22)
+                        self.turn_by_deg(-22)
+                        currenthead -= 22
                     else:
-                        self.turn_by_deg(-45)
+                        self.turn_by_deg(45)
+                        currenthead += 45
 
                 # checks if turned away from wall, if not, add 1 to turn checker and redoes turning protocal
                 if self.read_distance() > self.SAFE_DIST:
                     check = True
                 else:
                     cc += 1
+
+                
 
             
             
