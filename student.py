@@ -240,15 +240,16 @@ class Piggy(PiggyParent):
         # print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
         
         # these to values allow easier tracking direction to allow a turn bias
-        starthead = 1500
-        currenthead = 1500
+        starthead = 180
+        currenthead = 180
         exitheading = self.get_heading()
 
         check = True
-        
+        # inital large scan to determine optimal first turn
         self.largescan()
         self.turn(starthead)
 
+        # robot moves fowards until it detects a wall
         while True:
             cc = 0
             self.servo(self.MIDPOINT)
@@ -292,6 +293,7 @@ class Piggy(PiggyParent):
                 if cc >= 4:
                     self.turn_by_deg(180)
                     cc = 0
+                    currenthead -= 180
                     check = True
 
                 # Turns to side that is open with bias towards exit of maze
@@ -330,6 +332,9 @@ class Piggy(PiggyParent):
                     check = True
                 else:
                     cc += 1
+
+                if currenthead < 0:
+                    currenthead = abs(currenthead)
 
                 
 
