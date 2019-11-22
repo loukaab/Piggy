@@ -262,6 +262,7 @@ class Piggy(PiggyParent):
             # if robot is facing wildly away from exit, turn towards exit
             if abs(starthead - currenthead) > 90:
                 self.turn_to_deg(exitheading)
+                currenthead = 180
 
             # traversal
             # magic numbers for counters
