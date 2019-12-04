@@ -60,7 +60,7 @@ class Piggy(PiggyParent):
         startheading = self.get_heading()
 
         while True:
-            if self.get_heading() != startheading:
+            if abs(startheading - self.getheading()) > 5:
                 self.turn_to_deg(startheading)
 
     def waggle(self):
@@ -216,6 +216,7 @@ class Piggy(PiggyParent):
         lt = 0
         lc = 0
         
+        # obtaining distance data to calculate average distance
         for ang, dist in self.wide_scan_data.items():
             if ang < self.MIDPOINT:
                 rt += dist
