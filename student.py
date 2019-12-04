@@ -39,6 +39,7 @@ class Piggy(PiggyParent):
                 "d": ("Dance", self.dance),
                 "o": ("Obstacle count", self.obstacle_count),
                 "c": ("Calibrate", self.calibrate),
+                "h": ("Hold position", self.hold_position),
                 "q": ("Quit", self.quit)
                 }
         # loop and print the menu...
@@ -55,6 +56,13 @@ class Piggy(PiggyParent):
     ****************
     '''
     
+    def hold_position(self):
+        startheading = self.get_heading()
+
+        while True:
+            if self.get_heading() != startheading
+                self.turn_to_deg(startheading)
+
     def waggle(self):
         """This makes the robot do the 'waggle' dance """
         # Robot 'waggles' 4 times
@@ -87,8 +95,6 @@ class Piggy(PiggyParent):
         for s in range(2):
             self.turn_by_deg(350)
             self.turn_by_deg(-350)
-        
-            
             
     def moonwalk(self):
         self.turn_by_deg(-45)
