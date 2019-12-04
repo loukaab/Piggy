@@ -60,7 +60,7 @@ class Piggy(PiggyParent):
         startheading = self.get_heading()
 
         while True:
-            if abs(startheading - self.get_heading()) > 5:
+            if abs(startheading - self.get_heading()) > 10:
                 self.turn_to_deg(startheading)
 
     def waggle(self):
