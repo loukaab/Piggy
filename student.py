@@ -272,7 +272,7 @@ class Piggy(PiggyParent):
                 self.stop()
             
             # if robot is facing wildly away from exit, turn towards exit
-            if abs(starthead - currenthead) > 80 or self.read_distance() >= 1500:
+            if abs(starthead - currenthead) > 90 or self.read_distance() >= 1500:
                 self.turn_to_deg(exitheading)
                 currenthead = 180
 
