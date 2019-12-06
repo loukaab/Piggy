@@ -302,13 +302,13 @@ class Piggy(PiggyParent):
 
                     self.turn_by_deg(90)
                     currenthead += 90
-                    if self.read_distance() >= 250:
+                    if self.quick_check() >= 250:
                         cc = 0
                         check = True
 
                     self.turn_by_deg(-180)
                     currenthead -= 180
-                    if self.read_distance() >= 250:
+                    if self.quick_check() >= 250:
                         cc = 0
                         check = True
 
