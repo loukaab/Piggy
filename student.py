@@ -35,7 +35,8 @@ class Piggy(PiggyParent):
         ## This is a DICTIONARY, it's a list with custom index values. Python is cool.
         # Please feel free to change the menu and add options.
         print("\n *** MENU ***") 
-        menu = {"n": ("Navigate", self.nav),
+        menu = {"n": ("Autonomous Navigation", self.nav),
+                "u": ("User Navigation", self.unav),
                 "d": ("Dance", self.dance),
                 "o": ("Obstacle count", self.obstacle_count),
                 "c": ("Calibrate", self.calibrate),
@@ -238,7 +239,41 @@ class Piggy(PiggyParent):
             self.turn_by_deg(22)
             head += 22
 
+    def unav(self):
+        print("---------! USER NAVIGATION ACTIVATED !----------\n")
+        
+        def forw(self):
+            self.fwd()
+            time.sleep(.5)
+            self.stop()
+        
+        def back(self):
+            self.back()
+            time.sleep(.5)
+            self.stop()
 
+        def lt(self):
+            self.turn_by_deg(-22.5)
+        
+        def rt(self):
+            self.turn_by_deg(-22.5)
+        
+        umenu = {"f": ("Forward", self.forw),
+                "b": ("Back", self.back),
+                "r": ("Right", self.rt),
+                "l": ("Left", self.lt)
+                }
+        # loop and print the menu...
+        for key in sorted(umenu.keys()):
+            print(key + ":" + umenu[key][0])
+        # store the user's answer
+        ans = str.lower(input("Your selection: "))
+        # activate the item selected
+        umenu.get(ans, [None, self.quit])[1]()
+
+
+
+    
 
     def nav(self):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
