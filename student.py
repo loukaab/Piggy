@@ -253,7 +253,7 @@ class Piggy(PiggyParent):
         self.turn_by_deg(-22.5)
     
     def rt(self):
-        self.turn_by_deg(-22.5)
+        self.turn_by_deg(22.5)
 
     def unav(self):
         print("---------! USER NAVIGATION ACTIVATED !----------\n")
