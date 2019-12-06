@@ -260,14 +260,19 @@ class Piggy(PiggyParent):
         while True:
             cc = 0
             self.servo(self.MIDPOINT)
-            while self.quick_check():
+            if self.read_distance() < 1500:
+                while self.quick_check():
+                    self.fwd()
+                    time.sleep(.01)
+                self.stop()
+                check = False
+            else:
                 self.fwd()
-                time.sleep(.01)
-            self.stop()
-            check = False
-          
+                time.sleep(1)
+                self.stop()
+            
             # if robot is facing wildly away from exit, turn towards exit
-            if abs(starthead - currenthead) > 80:
+            if abs(starthead - currenthead) > 80 or self.read_distance() >= 1000:
                 self.turn_to_deg(exitheading)
                 currenthead = 180
 
