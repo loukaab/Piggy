@@ -239,24 +239,24 @@ class Piggy(PiggyParent):
             self.turn_by_deg(22)
             head += 22
 
+    def forw(self):
+        self.fwd()
+        time.sleep(.5)
+        self.stop()
+    
+    def back(self):
+        self.back()
+        time.sleep(.5)
+        self.stop()
+
+    def lt(self):
+        self.turn_by_deg(-22.5)
+    
+    def rt(self):
+        self.turn_by_deg(-22.5)
+
     def unav(self):
         print("---------! USER NAVIGATION ACTIVATED !----------\n")
-        
-        def forw(self):
-            self.fwd()
-            time.sleep(.5)
-            self.stop()
-        
-        def back(self):
-            self.back()
-            time.sleep(.5)
-            self.stop()
-
-        def lt(self):
-            self.turn_by_deg(-22.5)
-        
-        def rt(self):
-            self.turn_by_deg(-22.5)
         
         umenu = {"f": ("Forward", self.forw),
                 "b": ("Back", self.back),
