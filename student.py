@@ -258,18 +258,19 @@ class Piggy(PiggyParent):
     def unav(self):
         print("---------! USER NAVIGATION ACTIVATED !----------\n")
         
-        umenu = {"f": ("Forward", self.forw),
-                "b": ("Back", self.back),
-                "r": ("Right", self.rt),
-                "l": ("Left", self.lt)
-                }
-        # loop and print the menu...
-        for key in sorted(umenu.keys()):
-            print(key + ":" + umenu[key][0])
-        # store the user's answer
-        ans = str.lower(input("Your selection: "))
-        # activate the item selected
-        umenu.get(ans, [None, self.quit])[1]()
+        while True:
+            umenu = {"f": ("Forward", self.forw),
+                    "b": ("Back", self.back),
+                    "r": ("Right", self.rt),
+                    "l": ("Left", self.lt)
+                    }
+            # loop and print the menu...
+            for key in sorted(umenu.keys()):
+                print(key + ":" + umenu[key][0])
+            # store the user's answer
+            ans = str.lower(input("Your selection: "))
+            # activate the item selected
+            umenu.get(ans, [None, self.quit])[1]()
 
 
 
