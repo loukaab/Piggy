@@ -1,5 +1,5 @@
 from teacher import PiggyParent
-import random, sys, time, keyboard
+import random, sys, time
 
 
 class Piggy(PiggyParent):
@@ -258,10 +258,7 @@ class Piggy(PiggyParent):
     def unav(self):
         print("---------! USER NAVIGATION ACTIVATED !----------\n")
         
-        while keyboard.is_pressed('f'):
-            self.forw()
 
-        """
         while True:
             umenu = {"f": ("Forward", self.forw),
                     "b": ("Back", self.back),
@@ -275,9 +272,6 @@ class Piggy(PiggyParent):
             ans = str.lower(input("Your selection: "))
             # activate the item selected
             umenu.get(ans, [None, self.quit])[1]()
-            """
-
-
     
 
     def nav(self):
