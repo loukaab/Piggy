@@ -60,9 +60,17 @@ class Piggy(PiggyParent):
     def hold_position(self):
         startheading = self.get_heading()
 
+        rsave = self.RIGHT_DEFAULT
+        lsave = self.LEFT_DEFAULT
+        self.LEFT_DEFAULT = 50
+        self.RIGHT_DEFAULT = 50
+
         while True:
             if abs(startheading - self.get_heading()) > 15:
                 self.turn_to_deg(startheading)
+
+        self.LEFT_DEFAULT = lsave
+        self.RIGHT_DEFAULT = rsave
 
     def waggle(self):
         """This makes the robot do the 'waggle' dance """
