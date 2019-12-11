@@ -172,7 +172,7 @@ class Piggy(PiggyParent):
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
-        for angle in range(self.MIDPOINT-450, self.MIDPOINT+450, 100):
+        for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 100):
             self.servo(angle)
             self.scan_data[angle] = self.read_distance()
 
@@ -262,6 +262,11 @@ class Piggy(PiggyParent):
     
     def rt(self):
         self.turn_by_deg(22.5)
+
+    def lasteffort(self, leave):
+        self.turn_to_deg(leave)
+        self.fwd()
+
 
     def unav(self):
         print("---------! USER NAVIGATION ACTIVATED !----------\n")
@@ -360,10 +365,13 @@ class Piggy(PiggyParent):
                         check = True
 
                     self.turn_by_deg(-45)
+                        self.lasteffort(exitheading)
+                    
+                    """
                     cc = 0
                     check = True
                     currenthead = 0
-                        
+                    """    
                     
                     
                     
