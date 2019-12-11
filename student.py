@@ -365,8 +365,8 @@ class Piggy(PiggyParent):
                         check = True
 
                     self.turn_by_deg(-45)
-                        self.lasteffort(exitheading)
-                    
+                    self.lasteffort(exitheading)
+                        
                     """
                     cc = 0
                     check = True
