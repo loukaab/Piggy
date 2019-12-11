@@ -378,12 +378,22 @@ class Piggy(PiggyParent):
 
                 # Turns to side that is open with bias towards exit of maze
                 elif left_avg > right_avg:
+                   while self.read_distance() >= 175:
+                       self.left()
+
+                   """
                    self.turn_by_deg(-22)
                    currenthead -= 22
+                   """
 
                 else:
+                    while self.read_distance() >= 175:
+                        self.right()
+
+                    """
                     self.turn_by_deg(22)
                     currenthead += 22
+                    """
 
                 # checks if turned away from wall, if not, add 1 to turn checker and redoes turning protocal
                 if self.read_distance() > self.SAFE_DIST:
