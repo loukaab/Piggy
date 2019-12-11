@@ -378,7 +378,7 @@ class Piggy(PiggyParent):
 
                 # Turns to side that is open with bias towards exit of maze
                 elif left_avg > right_avg:
-                   while self.read_distance() >= 175:
+                   while self.read_distance() <= 175:
                        self.left()
 
                    """
@@ -387,7 +387,7 @@ class Piggy(PiggyParent):
                    """
 
                 else:
-                    while self.read_distance() >= 175:
+                    while self.read_distance() <= 175:
                         self.right()
 
                     """
