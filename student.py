@@ -380,6 +380,7 @@ class Piggy(PiggyParent):
                 elif left_avg > right_avg:
                    while self.read_distance() <= 175:
                        self.servo(self.MIDPOINT)
+                       print("works")
                        self.left()
 
                    """
@@ -390,6 +391,7 @@ class Piggy(PiggyParent):
                 else:
                     while self.read_distance() <= 175:
                         self.servo(self.MIDPOINT)
+                        print("works")
                         self.right()
 
                     """
