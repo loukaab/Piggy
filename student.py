@@ -383,10 +383,10 @@ class Piggy(PiggyParent):
                         print("works")
                         self.left()
                     self.stop()
-                   """
-                   self.turn_by_deg(-22)
-                   currenthead -= 22
-                   """
+                    """
+                    self.turn_by_deg(-22)
+                    currenthead -= 22
+                    """
 
                 else:
                     self.servo(self.MIDPOINT)
