@@ -364,7 +364,6 @@ class Piggy(PiggyParent):
                         cc = 0
                         check = True
 
-                    self.turn_by_deg(-45)
                     self.lasteffort(exitheading)
                         
                     """
@@ -372,7 +371,7 @@ class Piggy(PiggyParent):
                     check = True
                     currenthead = 0
                     """    
-                    
+
                 # Turns to side that is open with bias towards exit of maze
                 elif left_avg > right_avg:
                     self.turn_by_deg(-22)
