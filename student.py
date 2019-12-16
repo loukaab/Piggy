@@ -270,6 +270,7 @@ class Piggy(PiggyParent):
         self.fwd()
 
     def fullcan(self):
+        pass
         for i in range(0, 361, 60):
             self.turn_to_deg(i)
             self.fullcand[i] = self.read_distance()
