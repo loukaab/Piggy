@@ -21,7 +21,7 @@ class Piggy(PiggyParent):
         self.SAFE_DIST = 250
         self.MIDPOINT = 1500  # what servo command (1000-2000) is straight forward for your bot?
         self.load_defaults()
-        self.fullcand[]
+        # self.fullcand[]
         
 
     def load_defaults(self):
