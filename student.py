@@ -271,12 +271,13 @@ class Piggy(PiggyParent):
 
     def fullcan(self):
         pass
+        """
         for i in range(0, 361, 60):
             self.turn_to_deg(i)
             self.fullcand[i] = self.read_distance()
         
         self.turn_to_deg(i)
-
+        """
 
     def unav(self):
         print("---------! USER NAVIGATION ACTIVATED !----------\n")
