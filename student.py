@@ -21,6 +21,7 @@ class Piggy(PiggyParent):
         self.SAFE_DIST = 250
         self.MIDPOINT = 1500  # what servo command (1000-2000) is straight forward for your bot?
         self.load_defaults()
+        self.fullcand[]
         
 
     def load_defaults(self):
@@ -41,6 +42,7 @@ class Piggy(PiggyParent):
                 "o": ("Obstacle count", self.obstacle_count),
                 "c": ("Calibrate", self.calibrate),
                 "h": ("Hold position", self.hold_position),
+                "v": ("Veer navigation", self.slither),
                 "q": ("Quit", self.quit)
                 }
         # loop and print the menu...
@@ -267,6 +269,13 @@ class Piggy(PiggyParent):
         self.turn_to_deg(leave)
         self.fwd()
 
+    def fullcan(self):
+        for i in range(0, 361, 60):
+            self.turn_to_deg(i)
+            self.fullcand[i] = self.read_distance()
+        
+        self.turn_to_deg(i)
+
 
     def unav(self):
         print("---------! USER NAVIGATION ACTIVATED !----------\n")
@@ -286,6 +295,45 @@ class Piggy(PiggyParent):
             # activate the item selected
             umenu.get(ans, [None, self.quit])[1]()
     
+    def slither(self): 
+        """ Practive a smooth veer """
+        # write down where we started
+        starting_direction = self.get_heading()
+        # start driving forward
+        self.set_motor_power(self.MOTOR_LEFT, self.LEFT_DEFAULT)
+        self.set_motor_power(self.MOTOR_RIGHT, self.RIGHT_DEFAULT)
+        self.fwd()
+        # throttle down the left motor
+        for power in range(self.LEFT_DEFAULT, 30, -10):
+            self.set_motor_power(self.MOTOR_LEFT, power)
+            time.sleep(.5)
+
+        # throttle up left while lowering right motors
+        for power in range(31, self.LEFT_DEFAULT + 1, 10):
+            self.set_motor_power(self.MOTOR_LEFT, power)
+            time.sleep(.5)
+
+        # throttle down the right motor
+        for power in range(self.RIGHT_DEFAULT, 30, -10):
+            self.set_motor_power(self.MOTOR_RIGHT, power)
+            time.sleep(.5)
+
+        left_speed = self.LEFT_DEFAULT
+        righ_speed = self.RIGHT_DEFAULT
+
+        # straighten out
+        while self.get_heading() != starting_direction:
+            # if I need to veer right
+            if self.get_heading() < starting_direction:
+                right_speed -= 10
+            
+            # if I need to veer left
+            elif self.get_heading() > starting_direction:
+                left_speed -= 10
+
+            self.set_motor_power(self.MOTOR_LEFT, self.LEFT_DEFAULT)
+            self.set_motor_power(self.MOTOR_RIGHT, self.RIGHT_DEFAULT)
+            time.sleep(.1)
 
     def nav(self):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
@@ -334,7 +382,7 @@ class Piggy(PiggyParent):
                 right_total = 0
                 right_count = 0
 
-                # transversal itself, collects distance and angel data
+                # transversal itself, collects distance and angle data
                 for ang, dist in self.scan_data.items():
                     if ang < self.MIDPOINT:
                         right_total += dist
