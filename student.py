@@ -321,7 +321,7 @@ class Piggy(PiggyParent):
             time.sleep(.5)
 
         left_speed = self.LEFT_DEFAULT
-        righ_speed = self.RIGHT_DEFAULT
+        right_speed = self.RIGHT_DEFAULT
 
         # straighten out
         while self.get_heading() != starting_direction:
