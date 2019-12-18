@@ -323,9 +323,14 @@ class Piggy(PiggyParent):
             time.sleep(.5)
             print("throttling down right")
 
+        # throttle up right
+        for power in range(31, self.LEFT_DEFAULT + 1, 10):
+            self.set_motor_power(self.MOTOR_RIGHT, power)
+            time.sleep(.5)
+            print("throttling up right")
+
         left_speed = self.LEFT_DEFAULT
         right_speed = self.RIGHT_DEFAULT
-        time.sleep(2)
         # straighten out
         while self.get_heading() != starting_direction:
             # if I need to veer right
